@@ -57,6 +57,13 @@ int main() {
 
 	cout << "Total: " << total.getMinutes() << " minutes" << endl;
 	cout << "Objects created: " << StudyTime::getObjectCount() << endl;
+    	StudyTime fromReading(reading);         // Copy construction from reading.
+	StudyTime another;                       // Default-constructed new object.
+	another = reading;                       // Assignment: another already existed.
+
+	cout << "\nFinal count: " << StudyTime::getObjectCount() << endl;
+	cout << "fromReading: " << fromReading.getMinutes() << " minutes" << endl;
+	cout << "another: " << another.getMinutes() << " minutes" << endl;
 
 	return 0;
 }
