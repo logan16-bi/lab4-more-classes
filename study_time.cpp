@@ -38,6 +38,11 @@ class StudyTime
 			// Return a new duration without changing either operand.
 			return StudyTime(minutes + other.minutes);
 		}
+
+		// ===== Resuelve estos TODO ahora (Parte E) =====
+		bool operator==(const StudyTime &other) const {
+			return minutes == other.minutes;
+		}
 };
 
 int StudyTime::objectCount = 0;    // Define the single shared variable.
@@ -57,13 +62,22 @@ int main() {
 
 	cout << "Total: " << total.getMinutes() << " minutes" << endl;
 	cout << "Objects created: " << StudyTime::getObjectCount() << endl;
-    	StudyTime fromReading(reading);         // Copy construction from reading.
+
+	StudyTime fromReading(reading);         // Copy construction from reading.
 	StudyTime another;                       // Default-constructed new object.
 	another = reading;                       // Assignment: another already existed.
 
 	cout << "\nFinal count: " << StudyTime::getObjectCount() << endl;
 	cout << "fromReading: " << fromReading.getMinutes() << " minutes" << endl;
 	cout << "another: " << another.getMinutes() << " minutes" << endl;
+
+	StudyTime firstHalf(20);
+	StudyTime secondHalf(20);
+	StudyTime different(50);
+
+	cout << boolalpha;
+	cout << "\nfirstHalf == secondHalf: " << (firstHalf == secondHalf) << endl;
+	cout << "firstHalf == different: " << (firstHalf == different) << endl;
 
 	return 0;
 }
